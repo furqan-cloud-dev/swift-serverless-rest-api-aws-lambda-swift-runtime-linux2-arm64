@@ -6,12 +6,12 @@
 Swift Server Implementation - RESTful APIs, AWS Lambda Serverless For Swift Runtime amazonlinux: AWS Lambda + API Gateway deployed on Graviton arm64 build swift:5.6.2-amazonlinux2-docker image </BR></BR>
 
 Some additional detail about this solution: https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing </BR></BR>
-Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
-Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: DATABASE_URL "mongodb:url_connect_database" </BR>
-Connect an API gateway with Route: </BR>
-/api/enitity{model} </BR>
+- Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
+- Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: DATABASE_URL "mongodb:url_connect_database" </BR>
+- Connect an API gateway with Route: </BR>
+/api/enitity/{model} </BR></BR>
 Any Entity as json request can be created/updated/read,  to/from the MongoDB database </BR>
-exp: </BR></BR>
+exp: </BR>
 
 Make CRUD operations simpler, with options for custom object validation</BR>
 [ ANY ]  /api/enitity/model
