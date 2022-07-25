@@ -11,10 +11,14 @@ Set Environment variable for MongoDB Cloud database via Lambda configuration -> 
 Connect an API gateway with Route: </BR>
 /api/enitity </BR>
 Any Entity as json request can be created/updated/read,  to/from the MongoDB database </BR>
-Like: </BR>
+Like: </BR></BR>
+
+Make CRUD operations simpler, with options for custom object validation</BR>
+[ ANY ]  /api/enitity/model
+</BR></BR>
 [ POST ]  /api/enitity/users </BR>
-[ GET ] /api/enitity/users </BR>
-[ GET ] /api/enitity/users/1?sort=created,limit=20 </BR>
+[ GET ] /api/enitity/users?sort=created_at&limit=20 </BR>
+[ GET ] /api/enitity/users/1 </BR>
 [ PUT ] /api/enitity/users/1 </BR>
 [ DELETE ] /api/enitity/users/1 </BR>
 
