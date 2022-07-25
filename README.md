@@ -13,8 +13,12 @@ Connect an API gateway with Route: </BR>
 Any Entity as json request can be created/updated/read,  to/from the MongoDB database </BR>
 Like: </BR>
 [ POST ]  /api/enitity/users </BR>
-[ GET ] /api/enitity/users </BR></BR>
- 
+[ GET ] /api/enitity/users </BR>
+[ GET ] /api/enitity/users/1?sort=created,limit=20 </BR>
+[ PUT ] /api/enitity/users/1 </BR>
+[ DELETE ] /api/enitity/users/1 </BR>
+
+</BR> 
 Inpired by Facebook's Cloud Database Project: "Parse" </BR>
 (Parse Project was shutdown almost 3 years back but it provide different solutions to update data from frontend applications in the form of enitiy model classes </BR></BR>
 
