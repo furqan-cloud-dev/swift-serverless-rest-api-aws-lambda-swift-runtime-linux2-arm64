@@ -37,9 +37,11 @@ Inpired by Facebook's Cloud Database Project: "Parse" </BR>
 
 </BR>
 Working on JWT authorization integration. Options are: </BR>
-APIGateway Authorizer for any specific route</BR>
-Custom implementation is pretty much dynamic. Using JWT Library dependency but it may add an additional cold start time for boot up. </BR>
+- APIGateway Authorizer for any specific route</BR>
+- Custom implementation is pretty much dynamic. Using JWT Library dependency but it may add an additional cold start time for boot up. </BR>
 
+
+</BR>Any Feedback, suggestion, improvisation is welcomed</BR>
 
 </BR></BR>
 regards, </BR>
