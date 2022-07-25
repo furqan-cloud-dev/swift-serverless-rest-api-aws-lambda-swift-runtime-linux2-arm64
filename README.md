@@ -9,9 +9,9 @@ Some additional detail about this solution: https://docs.google.com/document/d/1
 Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
 Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: DATABASE_URL "mongodb:url_connect_database" </BR>
 Connect an API gateway with Route: </BR>
-/api/enitity </BR>
+/api/enitity{model} </BR>
 Any Entity as json request can be created/updated/read,  to/from the MongoDB database </BR>
-Like: </BR></BR>
+exp: </BR></BR>
 
 Make CRUD operations simpler, with options for custom object validation</BR>
 [ ANY ]  /api/enitity/model
