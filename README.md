@@ -1,17 +1,18 @@
 # swift-serverless-rest-api-aws-lambda-swift-runtime-linux2-arm64
 Swift Server Implementation - RESTful APIs, AWS Lambda Serverless For Swift Runtime amazonlinux: AWS Lambda + API Gateway deployed on Graviton arm64 build swift:5.6.2-amazonlinux2-docker image </BR>
 
-Some addition detail about this solution: https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing </BR>
-Just upload to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
-Set Environment variable for MongoDB Cloud database via Lambda configuration: DATABASE_URL "mongodb:url_connect_database" </BR>
+Some additional detail about this solution: https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing </BR></BR>
+Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
+Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: DATABASE_URL "mongodb:url_connect_database" </BR>
 Connect an API gateway with Route: </BR>
 /api/enitity </BR>
 Any Entity as json request can be created/updated/read,  to/from the MongoDB database </BR>
 Like: </BR>
 [ POST ]  /api/enitity/users </BR>
-[ GET ] /api/enitity/users </BR>
+[ GET ] /api/enitity/users </BR></BR>
  
 Inpired by Facebook's Cloud Database Project: "Parse" </BR>
+(Parse Project was shutdown almost 3 years back but it provide different solutions to update data from frontend applications in the form of enitiy model classes </BR></BR>
 
 - Strongly typed feature of Swift for stable and faster development </BR>
 - Easy deployment to AWS Serverless Lambda without any server maintenance </BR>
