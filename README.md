@@ -5,6 +5,9 @@
 </BR>
 Swift Server Implementation - RESTful APIs, AWS Lambda Serverless For Swift Runtime amazonlinux: AWS Lambda + API Gateway deployed on Graviton arm64 build swift:5.6.2-amazonlinux2-docker image </BR></BR>
 
+Utilizing New AsyncLambdaHandler feature to support latest structured concurrency pattern: async/await  (Swift 5.5+) 
+</BR></BR>
+
 For any detail about Server-Side-Swift and Lambda-Serverless solutions, Please check: https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing </BR></BR>
 - Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
 - Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: DATABASE_URL "mongodb:url_connect_database" </BR>
@@ -36,9 +39,17 @@ Inpired by Facebook's Cloud Database Project: "Parse" </BR>
 
 
 </BR>
-Working on JWT authorization integration. Options are: </BR>
+Working on:
+</BR>
+JWT authorization integration. Options are: </BR>
 - APIGateway Authorizer for any specific route</BR>
-- Custom implementation is pretty much dynamic. Using JWT Library dependency but it may add an additional cold start time for boot up. </BR>
+- Custom implementation is pretty much dynamic. Using JWT Library dependency but it may add an additional cold start time for boot up. </BR></BR>
+
+- CI/CD for one-click/command deploy updates to Lambda func </BR>
+- verify Apple claims in WWDC: Static Linking for Linux to achieve: </BR>
+--- 33% faster cold start time on AWS Lambda </BR>
+--- 40% faster invocation time for APIGateway Lambda</BR></BR>
+
 
 
 </BR>Any Feedback, suggestion, improvisation is welcomed</BR>
