@@ -5,7 +5,7 @@
 </BR>
 Swift Server Implementation - RESTful APIs, AWS Lambda Serverless For Swift Runtime amazonlinux: AWS Lambda + API Gateway deployed on Graviton arm64 build swift:5.6.2-amazonlinux2-docker image </BR></BR>
 
-Some additional detail about this solution: https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing </BR></BR>
+For any detail about Server-Side-Swift and Lambda-Serverless solutions, Please check: https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing </BR></BR>
 - Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
 - Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: DATABASE_URL "mongodb:url_connect_database" </BR>
 - Connect an API gateway with Route: </BR>
@@ -14,13 +14,13 @@ Any Entity as json request can be created/updated/read,  to/from the MongoDB dat
 exp: </BR>
 
 Make CRUD operations simpler, with options for custom object validation</BR>
-[ ANY ]  /api/enitity/model
+[ ANY ]  /api/entity/model
 </BR></BR>
-[ POST ]  /api/enitity/users </BR>
-[ GET ] /api/enitity/users?sort=created_at&limit=20 </BR>
-[ GET ] /api/enitity/users/1 </BR>
-[ PUT ] /api/enitity/users/1 </BR>
-[ DELETE ] /api/enitity/users/1 </BR>
+[ POST ]  /api/entity/users </BR>
+[ GET ] /api/entity/users?sort=created_at&limit=20 </BR>
+[ GET ] /api/entity/users/1 </BR>
+[ PUT ] /api/entity/users/1 </BR>
+[ DELETE ] /api/entity/users/1 </BR>
 
 </BR> 
 Inpired by Facebook's Cloud Database Project: "Parse" </BR>
