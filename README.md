@@ -8,8 +8,9 @@ Swift Server Implementation - RESTful APIs, AWS Lambda Serverless For Swift Runt
 Utilizing New AsyncLambdaHandler feature to support latest structured concurrency pattern: async/await  (Swift 5.5+) 
 </BR>
 For any detail about Server-Side-Swift and Lambda-Serverless solutions, Please check: https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing </BR></BR>
+
 - Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
-AWS CLI command to update: </BR>
+AWS CLI command to update (IAM Role needs to be configured with required lambda & s3 permissions ): </BR>
 aws lambda update-function-code --function "$lambda_function_name" --s3-bucket "$s3_bucket_name" --region=us-east-1 --s3-key lambda.zip   
 </BR>
 - Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: DATABASE_URL "mongodb:url_connect_database" </BR>
@@ -24,7 +25,7 @@ Make CRUD operations simpler, with options for custom object validation. APIGate
 [ ANY ]  /api/entity/model
 </BR></BR>
 [ POST ]  /api/entity/users </BR>
-[ GET ] /api/entity/users?sort=created_at&order=asc&limit=20 </BR>
+[ GET ] /api/entity/users?sort=created_at&order=desc&limit=20 </BR>
 [ GET ] /api/entity/users/id </BR>
 [ PUT ] /api/entity/users/id </BR>
 [ DELETE ] /api/entity/users/id </BR>
