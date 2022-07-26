@@ -10,7 +10,13 @@ Utilizing New AsyncLambdaHandler feature to support latest structured concurrenc
 
 For any detail about Server-Side-Swift and Lambda-Serverless solutions, Please check: https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing </BR></BR>
 - Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
+AWS CLI command to update: </BR>
+aws lambda update-function-code --function "$lambda_function_name" --s3-bucket "$s3_bucket_name" --region=us-east-1 --s3-key lambda.zip   
+
+</BR></BR>
 - Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: DATABASE_URL "mongodb:url_connect_database" </BR>
+We can use MongoDB Atlas Cloud managed solution - Free Shared Instance ( https://www.mongodb.com/blog/post/free-your-genius-on-mongodb-atlas-free-tier )
+</BR></BR>
 - Connect an API gateway with Route: </BR>
 /api/enitity/{model} </BR></BR>
 Any Entity as json request can be created/updated/read,  to/from the MongoDB database </BR>
