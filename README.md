@@ -6,30 +6,28 @@
 Swift Server Implementation - RESTful APIs, AWS Lambda Serverless For Swift Runtime amazonlinux: AWS Lambda + API Gateway deployed on Graviton arm64 build swift:5.6.2-amazonlinux2-docker image </BR></BR>
 
 Utilizing New AsyncLambdaHandler feature to support latest structured concurrency pattern: async/await  (Swift 5.5+) 
-</BR></BR>
-
+</BR>
 For any detail about Server-Side-Swift and Lambda-Serverless solutions, Please check: https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing </BR></BR>
 - Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
 AWS CLI command to update: </BR>
 aws lambda update-function-code --function "$lambda_function_name" --s3-bucket "$s3_bucket_name" --region=us-east-1 --s3-key lambda.zip   
-
-</BR></BR>
+</BR>
 - Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: DATABASE_URL "mongodb:url_connect_database" </BR>
 We can use MongoDB Atlas Cloud managed solution - Free Shared Instance ( https://www.mongodb.com/blog/post/free-your-genius-on-mongodb-atlas-free-tier )
-</BR></BR>
+</BR>
 - Connect an API gateway with Route: </BR>
 /api/enitity/{model} </BR></BR>
 Any Entity as json request can be created/updated/read,  to/from the MongoDB database </BR>
 exp: </BR>
 
-Make CRUD operations simpler, with options for custom object validation</BR>
+Make CRUD operations simpler, with options for custom object validation. APIGateway also provide custom json object mapping for request validation</BR>
 [ ANY ]  /api/entity/model
 </BR></BR>
 [ POST ]  /api/entity/users </BR>
-[ GET ] /api/entity/users?sort=created_at&limit=20 </BR>
-[ GET ] /api/entity/users/1 </BR>
-[ PUT ] /api/entity/users/1 </BR>
-[ DELETE ] /api/entity/users/1 </BR>
+[ GET ] /api/entity/users?sort=created_at&order=asc&limit=20 </BR>
+[ GET ] /api/entity/users/id </BR>
+[ PUT ] /api/entity/users/id </BR>
+[ DELETE ] /api/entity/users/id </BR>
 
 </BR> 
 Inpired by Facebook's Cloud Database Project: "Parse" </BR>
