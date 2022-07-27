@@ -43,6 +43,21 @@ Inpired by Facebook's Cloud Database Project: "Parse" </BR>
 - Any custom validations can be used for any specific resources like: users,bookings,  etc. </BR></BR>
 
 
+
+#Using Swift with Lambda and AWS </BR></BR>
+AWS Lambda supports a couple programming languages natively. This means you can upload the source code directly and AWS Lambda can compile it on the fly. Unfortunately, this isn’t yet the case for Swift. So, for Swift to run on AWS Lambda, you need to: </BR>
+Compile the function as an executable file that runs on Amazon Linux 2. </BR>
+Include all dependencies and libraries with the bootstrap file. </BR>
+You’ll use Docker to do that, and i have provided you with a convenient ZIP file of your function and its dependencies that you upload to AWS Lambda. </BR>
+AWS Lambda does come with a few limitations: </BR>
+AWS Lambda functions run for a maximum of 15 minutes. </BR>
+A function may take a few extra seconds to run for the first time since AWS Lambda is booting the function. This is also referred to as a “cold start”. </BR>
+AWS Lambda is, by definition, stateless; there’s no shared memory among AWS Lambda functions. </BR>
+AWS Lambda functions can perform a variety of tasks, so not every AWS Lambda function is a public function. Depending on your use case, you may not even need internet access. </BR>
+AWS Lambda functions can use EventLoops, but they’re usually used within a specific context only. </BR></BR>
+
+
+
 </BR>
 Working on:
 </BR>
