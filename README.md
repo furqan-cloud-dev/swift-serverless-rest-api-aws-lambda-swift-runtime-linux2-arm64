@@ -7,16 +7,16 @@ Swift Server Implementation - RESTful APIs, AWS Lambda Serverless For Swift Runt
 
 Utilizing New AsyncLambdaHandler feature to support latest structured concurrency pattern: **async/await**  (Swift 5.5+) 
 </BR>
-For any detail about Server-Side-Swift and Lambda-Serverless solutions, Please check: https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing </BR></BR>
+For any detail about Server-Side-Swift and Lambda-Serverless solutions, Please check [here](https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing)  </BR></BR>
 
 Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
 AWS CLI command to update (IAM Role needs to be configured with required lambda & s3 permissions ): </BR>
 `aws lambda update-function-code --function "$lambda_function_name" --s3-bucket "$s3_bucket_name" --region=us-east-1 --s3-key lambda.zip`   
 </BR>
 Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: `DATABASE_URL "mongodb:url_connect_database"` </BR>
-We can use MongoDB Atlas Cloud managed solution - Free Shared Instance ( https://www.mongodb.com/blog/post/free-your-genius-on-mongodb-atlas-free-tier )
+We can use MongoDB Atlas Cloud managed solution - [Free Shared Instance](https://www.mongodb.com/blog/post/free-your-genius-on-mongodb-atlas-free-tier)
 </BR>
-- Connect an API gateway with Route: </BR>
+Connect an API gateway with Route: </BR>
 /api/entity/{model} </BR></BR>
 Any Entity as json request can be created/updated/read,  to/from the MongoDB database </BR>
 exp: </BR>
@@ -59,24 +59,24 @@ AWS Lambda supports a couple programming languages natively. This means you can 
 
 
 </BR>
-**Working On:**
+**Working On**:
 </BR>
-- JWT authorization integration. Options are: </BR>
-  - APIGateway Authorizer for any specific route</BR>
-  - Custom implementation is pretty much dynamic. Using JWT Library dependency but it may add an additional cold start time for boot up. </BR></BR>
+* JWT authorization integration. Options are: </BR>
+  * APIGateway Authorizer for any specific route</BR>
+  * Custom implementation is pretty much dynamic. Using JWT Library dependency but it may add an additional cold start time for boot up. </BR></BR>
 
-- CI/CD for one-click/command deploy updates to Lambda func </BR>
-- Verify Apple claims in WWDC: ( https://www.linkedin.com/posts/muhammad-furqan-121b691a_swiftonserver-swift-server-activity-6954367874148749312-JBrD?utm_source=linkedin_share&utm_medium=member_desktop_web) </BR>
-  - Static Linking for Linux to achieve: </BR>
-    - 33% faster cold start time on AWS Lambda </BR>
-    - 40% faster invocation time for APIGateway Lambda</BR></BR>
+* CI/CD for one-click/command deploy updates to Lambda func </BR>
+* Verify Apple claims in WWDC: [Static Linking for Linux Optimize Lambda Performance](https://www.linkedin.com/posts/muhammad-furqan-121b691a_swiftonserver-swift-server-activity-6954367874148749312-JBrD?utm_source=linkedin_share&utm_medium=member_desktop_web) </BR>
+  * Static Linking for Linux to achieve: </BR>
+    * 33% faster cold start time on AWS Lambda </BR>
+    * 40% faster invocation time for APIGateway Lambda</BR></BR>
 
 
 
 </BR>Any Feedback, suggestion, improvisation is welcomed</BR>
 
 </BR></BR>
-regards, </BR>
+**Created By**, </BR>
 Furqan </BR>
 (Software Developer / Solution Architect) </BR>
 Email: furqan.cloud.dev@gmail.com </BR></BR>
