@@ -10,14 +10,14 @@ Utilizing New AsyncLambdaHandler feature to support latest structured concurrenc
 For any detail about Server-Side-Swift and Lambda-Serverless solutions, Please check: https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing </BR></BR>
 
 Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
-AWS CLI command to update (IAM Role needs to be configured with required lambda & s3 permissions ): </BR></BR>
+AWS CLI command to update (IAM Role needs to be configured with required lambda & s3 permissions ): </BR>
 `aws lambda update-function-code --function "$lambda_function_name" --s3-bucket "$s3_bucket_name" --region=us-east-1 --s3-key lambda.zip`   
 </BR>
-- Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: `DATABASE_URL "mongodb:url_connect_database"` </BR>
+Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: `DATABASE_URL "mongodb:url_connect_database"` </BR>
 We can use MongoDB Atlas Cloud managed solution - Free Shared Instance ( https://www.mongodb.com/blog/post/free-your-genius-on-mongodb-atlas-free-tier )
 </BR>
 - Connect an API gateway with Route: </BR>
-`/api/entity/{model}` </BR></BR>
+/api/entity/{model} </BR></BR>
 Any Entity as json request can be created/updated/read,  to/from the MongoDB database </BR>
 exp: </BR>
 
@@ -31,7 +31,7 @@ Make **CRUD Operations** simpler, with options for custom object validation. API
 [ DELETE ] /api/entity/users/id </BR>
 
 </BR> 
-Inpired by Facebook's Cloud Database Project: **"Parse"** </BR>
+Inpired by Facebook's Cloud Database Project: "Parse" </BR>
 ( Parse Project was shutdown almost 3 years back but it provide different solutions to update data from frontend applications in the form of enitiy model classes ) </BR></BR>
 
 - Strongly typed feature of Swift for stable and faster development </BR>
@@ -59,7 +59,7 @@ AWS Lambda supports a couple programming languages natively. This means you can 
 
 
 </BR>
-###### Working on:
+**Working On:**
 </BR>
 - JWT authorization integration. Options are: </BR>
   - APIGateway Authorizer for any specific route</BR>
