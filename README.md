@@ -59,12 +59,11 @@ AWS Lambda supports a couple programming languages natively. This means you can 
 
 
 </BR>
-**Working On**:
+**Working On**
 </BR>
-* JWT authorization integration. Options are: </BR>
-  * APIGateway Authorizer for any specific route</BR>
-  * Custom implementation is pretty much dynamic. Using JWT Library dependency but it may add an additional cold start time for boot up. </BR></BR>
-
+* JWT authorization integration. Options are:
+  * APIGateway Authorizer for any specific route
+  * Custom implementation is pretty much dynamic. Using JWT Library dependency but it may add an additional cold start time for boot up.
 * CI/CD for one-click/command deploy updates to Lambda func </BR>
 * Verify Apple claims in WWDC: [Static Linking for Linux Optimize Lambda Performance](https://www.linkedin.com/posts/muhammad-furqan-121b691a_swiftonserver-swift-server-activity-6954367874148749312-JBrD?utm_source=linkedin_share&utm_medium=member_desktop_web) </BR>
   * Static Linking for Linux to achieve: </BR>
