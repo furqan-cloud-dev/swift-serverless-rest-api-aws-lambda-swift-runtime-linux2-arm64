@@ -40,18 +40,17 @@ Test the welcome route: In Lambda Test Tab with following APIGateway Event</BR>
   "headers": {}
 }`
 
-</BR>
 GET /welcome -> json resonse -> {"message": "swift rest-api server is running"}
 
-</BR>
+</BR></BR>
 
 Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: `DATABASE_URL "mongodb:url_connect_database"` </BR>
 We can use MongoDB Atlas Cloud managed solution - [Free Shared Instance](https://www.mongodb.com/blog/post/free-your-genius-on-mongodb-atlas-free-tier)
 </BR></BR>
 **e-Route** </BR>
 Connect an API gateway with entity-based Route: </BR>
-/api/e/{entity} </BR>
-/api/e/{entity}/{id} </BR>
+[ ANY ] /api/e/{entity} </BR>
+[ ANY ] /api/e/{entity}/{id} </BR>
 </BR>
 **CRUD**: Any Entity as json request can be created/updated/read/deleted,  to/from the MongoDB database </BR>
 exp: </BR>
@@ -65,13 +64,11 @@ Make **CRUD Operations** simpler, with options for custom object validation. API
 [ PUT ] /api/e/users/id </BR>
 [ DELETE ] /api/e/users/id </BR></BR>
 
-JWT Authorization:
-[ POST ]  /api/login  -> {"access_toke": "eyD7uitr4em......."} </BR>
-[ GET ]   /api/user/id  -> headers -> {"Authorization": "Bearer eyD7uitr4em......."}
+JWT Authorization: </BR>
+[ POST ]  /api/login  -> {"access_token": "eyD7uitr4em......."} </BR>
+[ GET ]   /api/user/id  :::: headers:  { "Authorization": "Bearer eyD7uitr4em.......", "content-type": "application/json" }
 
-</BR> 
-Inpired by Facebook's Cloud Database Project: "Parse" </BR>
-( Parse Project was shutdown almost 3 years back but it provide different solutions to update data from frontend applications in the form of enitiy model classes ) </BR></BR>
+</BR> </BR>
 
 - Strongly typed feature of Swift for stable and faster development </BR>
 - Easy deployment to AWS Serverless Lambda without any server maintenance </BR>
@@ -98,7 +95,7 @@ AWS Lambda supports a couple programming languages natively. This means you can 
 
 
 </BR> **Working On** </BR>
-- JWT authorization integration. Options are:
+- JWT authorization via:
   - APIGateway Authorizer for any specific route
   - Custom implementation is pretty much dynamic. Using JWT Library dependency but it may add an additional cold start time for boot up.
 - </BR> CI/CD for one-click/command deploy updates to Lambda func 
