@@ -9,26 +9,65 @@ Utilizing New AsyncLambdaHandler feature to support latest structured concurrenc
 </BR>
 For any detail about Server-Side-Swift and Lambda-Serverless solutions, Please check [here](https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing)  </BR></BR>
 
-Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
+Just upload "swift-server-lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
 AWS CLI command to update (IAM Role needs to be configured with required lambda & s3 permissions ): </BR>
 `aws lambda update-function-code --function "$lambda_function_name" --s3-bucket "$s3_bucket_name" --region=us-east-1 --s3-key lambda.zip`   
 </BR>
+Test the welcome route: In Lambda Test Tab with following APIGateway Event</BR>
+`{
+  "routeKey": "GET /welcome",
+  "version": "2.0",
+  "rawPath": "/welcome",
+  "requestContext": {
+    "accountId": "",
+    "apiId": "",
+    "domainName": "",
+    "domainPrefix": "",
+    "stage": "",
+    "requestId": "",
+    "http": {
+      "path": "/welcome",
+      "method": "GET",
+      "protocol": "HTTP/1.1",
+      "sourceIp": "",
+      "userAgent": ""
+    },
+    "time": "",
+    "timeEpoch": 0
+  },
+  "isBase64Encoded": false,
+  "rawQueryString": "",
+  "headers": {}
+}`
+
+</BR>
+GET /welcome -> json resonse -> {"message": "swift rest-api server is running"}
+
+</BR>
+
 Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: `DATABASE_URL "mongodb:url_connect_database"` </BR>
 We can use MongoDB Atlas Cloud managed solution - [Free Shared Instance](https://www.mongodb.com/blog/post/free-your-genius-on-mongodb-atlas-free-tier)
+</BR></BR>
+**e-Route** </BR>
+Connect an API gateway with entity-based Route: </BR>
+/api/e/{entity} </BR>
+/api/e/{entity}/{id} </BR>
 </BR>
-Connect an API gateway with Route: </BR>
-/api/entity/{model} </BR></BR>
-Any Entity as json request can be created/updated/read,  to/from the MongoDB database </BR>
+**CRUD**: Any Entity as json request can be created/updated/read/deleted,  to/from the MongoDB database </BR>
 exp: </BR>
 
 Make **CRUD Operations** simpler, with options for custom object validation. APIGateway also provide custom json object mapping for request validation</BR>
-[ ANY ]  /api/entity/model
+[ ANY ]  /api/e/{entity}
 </BR></BR>
-[ POST ]  /api/entity/users </BR>
-[ GET ] /api/entity/users?sort=created_at&order=desc&limit=20 </BR>
-[ GET ] /api/entity/users/id </BR>
-[ PUT ] /api/entity/users/id </BR>
-[ DELETE ] /api/entity/users/id </BR>
+[ POST ]  /api/e/users </BR>
+[ GET ] /api/e/users?sort=created_at&order=desc&limit=20 </BR>
+[ GET ] /api/e/users/id </BR>
+[ PUT ] /api/e/users/id </BR>
+[ DELETE ] /api/e/users/id </BR></BR>
+
+JWT Authorization:
+[ POST ]  /api/login  -> {"access_toke": "eyD7uitr4em......."} </BR>
+[ GET ]   /api/user/id  -> headers -> {"Authorization": "Bearer eyD7uitr4em......."}
 
 </BR> 
 Inpired by Facebook's Cloud Database Project: "Parse" </BR>
