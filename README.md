@@ -7,10 +7,13 @@
 Swift Server Implementation - RESTful APIs, AWS Lambda Serverless For Swift Runtime amazonlinux: AWS Lambda + API Gateway deployed on Graviton arm64 build **swift:5.6.2-amazonlinux2-docker image** </BR></BR>
 Using Xcode 13+, Utilizing Latest features of Swift Programming Language
 </BR>
-Utilizing New AsyncLambdaHandler feature to support latest structured concurrency pattern: **async/await**  (Swift 5.5+) 
+Utilizing New AsyncLambdaHandler feature to support latest structured concurrency pattern:</BR> 
+**"async/await"**  (Swift 5.5+) 
 </BR>
-For any detail about Server-Side-Swift and Lambda-Serverless solutions, Please check [here](https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing)  </BR></BR>
+For any detail about Server-Side-Swift and Lambda-Serverless solutions, 
+Please check [here](https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing)  
 
+</BR></BR>
 Just upload "swift-server-lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
 AWS CLI command to update (IAM Role needs to be configured with required lambda & s3 permissions ): </BR>
 `aws lambda update-function-code --function "$lambda_function_name" --s3-bucket "$s3_bucket_name" --region=us-east-1 --s3-key lambda.zip`   
