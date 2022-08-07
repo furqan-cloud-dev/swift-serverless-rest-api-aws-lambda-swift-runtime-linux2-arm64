@@ -1,7 +1,7 @@
 # swift-serverless-rest-api-aws-lambda-swift-runtime-amzlinux2-arm64
 </BR>
 <img width="850" alt="aws-lambda-swift " src="https://user-images.githubusercontent.com/102517671/180840050-becf4230-6b32-4be3-ae84-d8b88c1887c8.png">
-<img width="717" alt="swift-serverless-aws-lambda" src="https://user-images.githubusercontent.com/102517671/183278007-344c8193-0113-4ec4-b850-fff535929ad0.png">
+<img width="1434" alt="swift-serverless-aws-lambda" src="https://user-images.githubusercontent.com/102517671/183278007-344c8193-0113-4ec4-b850-fff535929ad0.png">
 
 </BR>
 Swift Server Implementation - RESTful APIs, AWS Lambda Serverless For Swift Runtime amazonlinux: AWS Lambda + API Gateway deployed on Graviton arm64 build **swift:5.6.2-amazonlinux2-docker image** </BR></BR>
