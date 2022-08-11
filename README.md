@@ -1,6 +1,7 @@
 # swift-serverless-rest-api-aws-lambda-swift-runtime-amzlinux2-arm64
 </BR>
 <img width="850" alt="aws-lambda-swift " src="https://user-images.githubusercontent.com/102517671/180840050-becf4230-6b32-4be3-ae84-d8b88c1887c8.png">
+<img width="1292" alt="swift-lambda-runtime-stats" src="https://user-images.githubusercontent.com/102517671/184109940-584c724e-5f25-4c15-8abf-4275f6dfcd7f.png">
 <img width="1434" alt="swift-serverless-aws-lambda" src="https://user-images.githubusercontent.com/102517671/183278007-344c8193-0113-4ec4-b850-fff535929ad0.png">
 
 </BR>
@@ -14,7 +15,7 @@ For any detail about Server-Side-Swift and Lambda-Serverless solutions,
 Please check [here](https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing)  
 
 </BR></BR>
-Just upload "swift-server-lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
+Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
 AWS CLI command to update (IAM Role needs to be configured with required lambda & s3 permissions ): </BR>
 `aws lambda update-function-code --function "$lambda_function_name" --s3-bucket "$s3_bucket_name" --region=us-east-1 --s3-key lambda.zip`   
 </BR>
