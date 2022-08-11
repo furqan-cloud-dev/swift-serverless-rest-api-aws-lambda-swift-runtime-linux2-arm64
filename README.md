@@ -1,38 +1,79 @@
 # swift-serverless-rest-api-aws-lambda-swift-runtime-amzlinux2-arm64
 </BR>
 <img width="850" alt="aws-lambda-swift " src="https://user-images.githubusercontent.com/102517671/180840050-becf4230-6b32-4be3-ae84-d8b88c1887c8.png">
+<img width="1434" alt="swift-serverless-aws-lambda" src="https://user-images.githubusercontent.com/102517671/183278007-344c8193-0113-4ec4-b850-fff535929ad0.png">
 
 </BR>
 Swift Server Implementation - RESTful APIs, AWS Lambda Serverless For Swift Runtime amazonlinux: AWS Lambda + API Gateway deployed on Graviton arm64 build **swift:5.6.2-amazonlinux2-docker image** </BR></BR>
-
-Utilizing New AsyncLambdaHandler feature to support latest structured concurrency pattern: **async/await**  (Swift 5.5+) 
+Using Xcode 13+, Utilizing Latest features of Swift Programming Language
 </BR>
-For any detail about Server-Side-Swift and Lambda-Serverless solutions, Please check [here](https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing)  </BR></BR>
+Utilizing New AsyncLambdaHandler feature to support latest structured concurrency pattern:</BR> 
+**"async/await"**  (Swift 5.5+) 
+</BR>
+For any detail about Server-Side-Swift and Lambda-Serverless solutions, 
+Please check [here](https://docs.google.com/document/d/1GlGv0avpbpE6lqJbpxz5iHgaiPMC5E543rYGg5Ionbw/edit?usp=sharing)  
 
-Just upload "lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
+</BR></BR>
+Just upload "swift-server-lambda.zip" to AWS Lambda via S3 bucket file (direct lambda upload limit is 10MB) </BR>
 AWS CLI command to update (IAM Role needs to be configured with required lambda & s3 permissions ): </BR>
 `aws lambda update-function-code --function "$lambda_function_name" --s3-bucket "$s3_bucket_name" --region=us-east-1 --s3-key lambda.zip`   
 </BR>
+Test the welcome route: In Lambda Test Tab with following APIGateway Event</BR>
+`{
+  "routeKey": "GET /welcome",
+  "version": "2.0",
+  "rawPath": "/welcome",
+  "requestContext": {
+    "accountId": "",
+    "apiId": "",
+    "domainName": "",
+    "domainPrefix": "",
+    "stage": "",
+    "requestId": "",
+    "http": {
+      "path": "/welcome",
+      "method": "GET",
+      "protocol": "HTTP/1.1",
+      "sourceIp": "",
+      "userAgent": ""
+    },
+    "time": "",
+    "timeEpoch": 0
+  },
+  "isBase64Encoded": false,
+  "rawQueryString": "",
+  "headers": {}
+}`
+
+GET /welcome -> json resonse -> {"message": "swift rest-api server is running"}
+
+</BR></BR>
+
 Set Environment variable for MongoDB Cloud database via Lambda configuration -> Environments Variables: `DATABASE_URL "mongodb:url_connect_database"` </BR>
 We can use MongoDB Atlas Cloud managed solution - [Free Shared Instance](https://www.mongodb.com/blog/post/free-your-genius-on-mongodb-atlas-free-tier)
+</BR></BR>
+**e-Route** </BR>
+Connect an API gateway with entity-based Route: </BR>
+[ ANY ] /api/e/{entity} </BR>
+[ ANY ] /api/e/{entity}/{id} </BR>
 </BR>
-Connect an API gateway with Route: </BR>
-/api/entity/{model} </BR></BR>
-Any Entity as json request can be created/updated/read,  to/from the MongoDB database </BR>
+**CRUD**: Any Entity as json request can be created/updated/read/deleted,  to/from the MongoDB database </BR>
 exp: </BR>
 
 Make **CRUD Operations** simpler, with options for custom object validation. APIGateway also provide custom json object mapping for request validation</BR>
-[ ANY ]  /api/entity/model
+[ ANY ]  /api/e/{entity}
 </BR></BR>
-[ POST ]  /api/entity/users </BR>
-[ GET ] /api/entity/users?sort=created_at&order=desc&limit=20 </BR>
-[ GET ] /api/entity/users/id </BR>
-[ PUT ] /api/entity/users/id </BR>
-[ DELETE ] /api/entity/users/id </BR>
+[ POST ]  /api/e/users </BR>
+[ GET ] /api/e/users?sort=created_at&order=desc&limit=20 </BR>
+[ GET ] /api/e/users/id </BR>
+[ PUT ] /api/e/users/id </BR>
+[ DELETE ] /api/e/users/id </BR></BR>
 
-</BR> 
-Inpired by Facebook's Cloud Database Project: "Parse" </BR>
-( Parse Project was shutdown almost 3 years back but it provide different solutions to update data from frontend applications in the form of enitiy model classes ) </BR></BR>
+JWT Authorization: </BR>
+[ POST ]  /api/login  -> {"access_token": "eyD7uitr4em......."} </BR>
+[ GET ]   /api/user/id  :::: headers:  { "Authorization": "Bearer eyD7uitr4em.......", "content-type": "application/json" }
+
+</BR> </BR>
 
 - Strongly typed feature of Swift for stable and faster development </BR>
 - Easy deployment to AWS Serverless Lambda without any server maintenance </BR>
@@ -59,7 +100,7 @@ AWS Lambda supports a couple programming languages natively. This means you can 
 
 
 </BR> **Working On** </BR>
-- JWT authorization integration. Options are:
+- JWT authorization via:
   - APIGateway Authorizer for any specific route
   - Custom implementation is pretty much dynamic. Using JWT Library dependency but it may add an additional cold start time for boot up.
 - </BR> CI/CD for one-click/command deploy updates to Lambda func 
